@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Main Page</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Navigation bar -->
+        <div class="navDiv">
+            <div class="aNav"><a href="#home" class="aNav">Home</a></div>
+            <div class="content">
+                <button class="contentBtn">Content</button>
+                <div class="dropdownContent">
+                    <a href="#">Anime</a>
+                    <a href="#">Manga</a>
+                </div>
+            </div>
+            <div class="navIcon"><input type="image" src="pictures\account.png" alt="login" width="30px" height="30px" id="logo" onclick="show('login')" class="icons"></div>
+        </div>
+
+        
+        <div class="slideshow">
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+                <h1>Top Of The Year</h1>
+                
+                <div class="mySlides fade">
+                <img src="http://placehold.it/1920x1080" style="width:100%">
+                <div class="text">Caption Text</div>
+                </div>
+            
+                <div class="mySlides fade">
+                <img src="http://placehold.it/1920x1080" style="width:100%">
+                <div class="text">Caption Two</div>
+                </div>
+            
+                <div class="mySlides fade">
+                <img src="http://placehold.it/1920x1080" style="width:100%">
+                <div class="text">Caption Three</div>
+                </div>
+            
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+            
+        <div class="separator"><b>Featutured Animes</b></div>
+        <div class="wrapper">
+            <div class="scrolls">
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Anime</h2><p class="desc">Rating</p></div>
+            </div>
+        </div>
+
+        <div class="separator"><b>Featutured Mangas</b></div>
+        <div class="wrapper">
+            <div class="scrolls">
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50"><h2>Manga</h2><p class="desc">Rating</p></div>
+            </div>
+        </div>
+        
+        <!-- Portion above footer -->
+        <div class="selection">
+            <ul class="selectionUl">
+                <li><h1>Content</h1></li>
+                <li class="selectionLi"><a href="#Anime" class="selectionA">Anime</a></li>
+                <li class="selectionLi"><a href="#Anime" class="selectionA">Manga</a></li>
+            </ul>
+
+            <div class="thinBar" id="thinBar"></div>
+
+            <ul class="selectionUl">
+                <li><h1>Support</h1></li>
+                <li class="selectionLi"><a href="#Contact" class="selectionA">Contact</a></li>
+            </ul>
+
+            <div class="thinBar" id="thinBar"></div>
+            
+            <ul class="selectionUl">
+                <li><h1>Company</h1></li>
+                <li class="selectionLi"><a href="#" class="selectionA">About</a></li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="blackBoxTop">
+                <ul class="footerUl">
+                    <li><h1><a href="#Find" class="footerA">Find content</a></h1></li>
+                    <li><h1><a href="#SignUp" onclick="show('signup')" class="footerA">Sign Up</a></h1></li>
+                    <li><h1><a href="#Contact" class="footerA">Feedback</a></h1></li>
+                </ul>
+
+                <ul class="footerUlSocial">
+                    <li class="socialLi"><input type="image" src="Pictures\Icons\facebook.png" alt="facebook" id="facebook" width="90px" height="90px" class="footerImages"></li>
+                    <li class="socialLi"><input type="image" src="Pictures\Icons\instagram.png" alt="instagram" id="instagram" width="90px" height="90px" class="footerImages"></li>
+                    <li class="socialLi"><input type="image" src="Pictures\Icons\twitter.png" alt="twitter" id="twitter" width="90px" height="90px" class="footerImages"></li>
+                    <li class="socialLi"><input type="image" src="Pictures\Icons\youtube.png" alt="youtube" id="youtube" width="100px" height="100px" class="footerImages"></li>
+                </ul>
+            </div>
+            <div class="blackBoxBottom">
+                <hr id="footerHr">
+
+                <div class="footerCopyright">
+                    <section class="footerSection">
+                        <h1 style="color: white;">Singapore</h1>
+                        <p style="color: gray; margin-left: 30px;">2020 Sprint, Inc. All Rights Reserved</p>
+                    </section>
+                    
+                    <ul>
+                        <li class="bottomLi"><a href="#Terms" class="bottomA">Terms of Use</a></li>
+                        <li  class="bottomLi"><a href="#Policy"  class="bottomA">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <!--The pop-up login form-->
+        <div id="login">
+            <div id="login-container" class="containers">
+                <div class="top">
+                    <img src="Pictures\Icons\logo.png">
+                    <a class="close" onclick="document.getElementById('login').style.display = 'none'">x</a>
+                </div>
+                <div class="mid">
+                    <input type="email" placeholder="Email" name="email" required><br>
+                    <input type="password" placeholder="Password" name="psw" required> 
+                </div>
+                <div class="mid2">
+                    <span><input type="checkbox" checked="checked"> Remember me</span>
+                    <span>Forgot <a href="#" style="color: black;">password?</a></span>
+                </div>
+                <div class="bot">
+                    <button onclick="document.getElementById('login').style.display = 'none'">Login</button>
+                </div>
+                <div class="bot">
+                    <label>New User?<a onclick="show('signup')"> Sign up</a></label>
+                </div>
+            </div>
+        </div>
+        
+        <!--The pop-up sign-up form-->
+        <div id="signup">
+            <div id="signup-container" class="containers">
+                <div class="top">
+                    <img src="Pictures/Icons\logo.png">
+                    <a class="close" onclick="document.getElementById('signup').style.display = 'none'">x</a>
+                </div>
+                <div class="mid">
+                    <input type="email" placeholder="Email" name="email" required> 
+                    <input type="password" placeholder="Enter Password" name="psw" required> 
+                    <input type="password" placeholder="Confirm Password" name="cpsw" required> 
+                    <input type="text" placeholder="Name" name="name" required> 
+                    <input type="date" placeholder="Date of Birth" name="dob" required> 
+                    <label><input type="checkbox" checked="checked"> I want to receive promotions via email</label>
+                </div>
+                <div class="bot">
+                    <button onclick="document.getElementById('signup').style.display = 'none'">Sign Up</button>
+                </div>
+                <div class="bot">
+                    <label>existing User?<a onclick="show('login')"> Login</a></label>
+                </div>
+            </div>
+        </div>
+        <script src="script.js" defer></script>
+        
+    </body>
+</html>

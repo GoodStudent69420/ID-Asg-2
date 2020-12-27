@@ -1,0 +1,579 @@
+/* CSS PORTION FOR INDEX.HTML
+---every thing for the nav bar*/
+a {
+    text-decoration: none;
+  }
+  
+.navDiv{
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.aNav{
+  float: left;
+  font-size: large;
+  color: white;
+  text-align: center;
+  padding: 7px 14px;
+}
+
+.content{
+  float: left;
+  overflow: hidden;
+}
+
+.content, .contentBtn{
+  font-size: large;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  padding: 7px 14px;
+}
+
+.dropdownContent{
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdownContent a{
+  float: none;
+  color: black;
+  display: block;
+  padding: 10px;
+  text-align: left;
+}
+
+.navDiv a:hover, .content:hover .contentBtn {
+  background-color: #39d4b5;
+}
+
+.dropdownContent a:hover{
+  background-color: #e8e8e8;
+}
+
+.content:hover .dropdownContent {
+  display: block;
+}
+
+.icons{
+  float: right;
+  background-color: white;
+  border-radius: 50%;
+  padding: 6px;
+  margin: 5px;
+}
+
+.icons:hover{
+  opacity: 0.8;
+}
+
+  /* everything for slideshow*/
+  .slideshow{
+    padding-top: 150px;
+  }
+  
+  .slideshow-container {
+    max-width: 1700px;
+    position: relative;
+    margin: auto;
+  }
+  
+  .mySlides {
+    display: none;
+  }
+  
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* slideshow Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+  
+/* Featured Anime & Manga */
+.separator {
+  margin-top: 5em;
+  margin-bottom: 2em;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 2em;
+}
+.separator::before, .separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #000;
+}
+.separator::before {
+  margin-left: 120px;
+  margin-right: .7em;
+}
+.separator::after {
+  margin-right: 120px;
+  margin-left: .7em;
+}
+
+.wrapper { 
+  box-shadow: 1px 1px 10px #999; 
+  margin: auto; 
+  text-align: center; 
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px !important;
+  width: 90%;
+  padding-top: 5px;
+}
+
+.scrolls { 
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: auto;
+  white-space:nowrap
+} 
+
+.scrolls img{
+  width: 200px;
+  height: auto;
+}
+
+.card:hover .desc{
+  display: block;
+}
+
+
+.card {
+  display: inline-block;
+  max-width: 200px;
+  text-align: center;
+  font-family: arial;
+}
+
+.desc{
+  display: none;
+}
+
+
+/* everything for selection div*/
+.selection{
+  margin-top:100px;
+  display: flex;   
+  justify-content: center;
+}
+
+.selectionUl{
+  margin:50px;
+}
+
+.selectionA{
+  color: gray;
+  font-size: large;
+}
+
+.selectionA:hover{
+  color: black;
+}
+
+.selectionLi{
+  margin-top: 25px;
+}
+
+.thinBar{
+  display: flex;
+  align-self: center;
+  margin-left: 20px;
+  height: 150px;
+  width: 1px;
+  background-color: gray;
+}
+
+/* footer stuff*/
+footer{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 500px;
+  margin-top: 100px;
+  background-color: black;
+}
+
+.footerUl{
+  float: left;
+  font-size: 25px;
+  margin-left: 200px;
+}
+
+.footerA{
+  color: white;
+}
+
+.footerUlSocial{
+  display: flex;
+  flex-direction: row;
+  float: right;
+  margin-right: 200px;
+  margin-top: 50px;
+}
+
+.socialLi{
+  margin:20px;
+}
+
+.blackBoxBottom{
+  display: flex;
+  flex-direction: column;
+}
+
+#footerHr{
+  background-color: gray;
+  margin-top: 2.5em;
+  width: 75%;
+}
+
+.footerCopyright{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.footerSection{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bottomLi{
+  display: inline-block;
+}
+
+.bottomA{
+  color: gray;
+  margin: 10px;
+}
+
+/*----------------------------CSS PORTION FOR POP-UP LGIN & SIGN UP----------------------------*/
+#login, #signup{
+  display: none;
+  position: fixed;
+  justify-content: center;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  padding-top: 10%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.top{
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.mid{
+  padding-top: 10px;
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.mid input{
+  margin-left: 20px;
+}
+
+.bot{
+  padding-top: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.bot button{
+  text-align: center;
+  width: 60%;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #0BC9BD;
+}
+
+.bot a, .bot button:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.top img{
+  width: 15%;
+}
+
+.containers{
+  width: 300px;
+  border-width: 3px;
+  border-color: black;
+  background-color: white;
+  color: black;
+  position: relative;
+}
+
+#login-container
+{
+  height: 400px;
+}
+
+#signup-container
+{
+  height: 550px;
+}
+
+.login-container p{
+  font-size: 30px;
+}
+
+.mid2{
+  display: flex;
+  justify-content: space-around;
+}
+
+.close{ 
+  position: absolute; 
+  right: 20px; 
+  top: 0px; 
+  font-size: 35px; 
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  font-weight: bold; 
+}
+
+.close:hover{
+  cursor: pointer;
+  color: red;
+}
+
+input[type=email], 
+input[type=password],
+input[type=date],
+input[type=text] { 
+  width: 80%; 
+  padding: 12px 20px; 
+  margin: 8px 0; 
+  display: inline-block; 
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+} 
+
+/*animation*/
+.containers {
+  animation: fadeIn ease 0.5s;
+}
+@keyframes fadeIn {
+  0% {
+      opacity:0;
+  }
+  100% {
+      opacity:1;
+  }
+}  
+
+
+/*responsive*/
+@media screen and (max-width: 1250px){
+  footer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+  }
+
+  .footerUl{
+    font-size: medium;
+    margin: 0;
+  }
+
+  .footerUlSocial{
+    margin-top: 0;
+  }
+
+  .socialLi{
+    margin: 5px;
+  }
+
+  .footerImages{
+    width: 50px; 
+    height: 50px;
+  }
+
+  .footerSection{
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    margin-left: 10px;
+  }
+
+  .footerCopyright{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+  
+@media screen and (max-width: 650px) {
+/*--------------------RESPONSIVE FOR INDEX.HTML PAGE-----------------------*/
+  nav {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    overflow-x: hidden;
+  }
+
+  .navLi{
+    font-size: small;
+  }
+  
+  .trending{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  .disBtn1, .disBtn2, .disBtn3{
+    transform: translate(-50%, -200%);
+
+  }
+
+  .bigDisBtn {
+    margin-top: -30px;
+    }
+
+  .selection{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .thinBar{
+    display: none;
+  }
+
+  .selection{
+    margin-left: -30px;
+  }
+
+  .selectionUl{
+    margin: 10px;
+  }
+
+  footer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+  }
+
+  .footerUl{
+    font-size: medium;
+    margin: 0;
+  }
+
+  .footerUlSocial{
+    margin-top: 0;
+  }
+
+  .socialLi{
+    margin: 5px;
+  }
+
+  .footerImages{
+    width: 20px; 
+    height: 20px;
+  }
+
+  .footerSection{
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    margin-left: 10px;
+  }
+
+  .footerCopyright{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /*--------------------RESPONSIVE FOR LOGIN & SIGNUP PAGE-----------------------*/
+  #login, #signup{
+    padding-top: 50%;
+  }
+}
+  
+  
