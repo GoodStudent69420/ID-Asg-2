@@ -47,6 +47,35 @@ function show(a){
   }
 }
 
+
+fetch('https://api.jikan.moe/v3/top/anime/1/tv')
+  .then(response => response.json()) 
+  .then(function(data){
+    console.log(data)
+    console.log(data.top[0].title)
+
+    let i = 0
+    while (i < 21){
+      document.getElementById("anime" + (i + 1).toString()).src = data.top[i].image_url;
+      document.getElementById("aTitle" + (i + 1).toString()).innerHTML = data.top[i].title;
+      i ++
+    }
+  });
+
+  fetch('https://api.jikan.moe/v3/top/manga/1/manga')
+  .then(response => response.json()) 
+  .then(function(data){
+    console.log(data)
+    console.log(data.top[0].title)
+
+    let i = 0
+    while (i < 21){
+      document.getElementById("manga" + (i + 1).toString()).src = data.top[i].image_url;
+      i ++
+    }
+  });
+
+/*
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btnFetch').addEventListener('click', sendReq);
   sessionStorage.setItem('MyUniqueUserToken', JSON.stringify('pkA7fg4vf3HpvZrcWvHHmPCVOxFCiGdMgz8FkuSQjv0fb8FlYKZUVV_ho3wqnaFmgV3DgjcCV4GG8Qg7kE-3QTiPJcKNG1S9vnbeARYjhgibjInVq7oC4mFq2K0mR0nIpZNlTcG7H1CzNbcBsNxJbn5zHsKZmKmTPNh-vhJanw8BKvloBKHChs5ByEtctkruvEj8b_ZdvtByXcXgROUYBgDhWHcc9TdsgrXavuY0smmCJ2MwVYBnZwDT4lWpBwASEWuVKj2YPG1aVg6uEZwyD8ukeQba5ShxqQxNf4LGtRm4qf5yU0RStgpkUrWMDxI_06bsScDPig8i4PPvnCw')
@@ -72,4 +101,4 @@ h.append('Authentication', `Bearer ${token}`);
       console.error(err.message);
     })
   }
-
+*/

@@ -223,6 +223,10 @@ a {
   display: none;
 }
 
+.aTitle{
+  overflow: hidden;
+}
+
 
 /* everything for selection div*/
 .selection{
