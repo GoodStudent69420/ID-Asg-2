@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body onload="fetchData()">
         <!-- Navigation bar -->
         <div class="navDiv">
             <div class="aNav"><a href="#home" class="aNav">Home</a></div>
@@ -23,6 +23,52 @@
             <div class="navIcon"><input type="image" src="pictures\account.png" alt="login" width="30px" height="30px" id="logo" onclick="show('login')" class="icons"></div>
         </div>
         
+        <div id="genres" class="sidenav">
+            <a href="#" class="aGenre" id="about">Action</a>
+            <a href="#" class="aGenre" id="blog">Adventure</a>
+            <a href="#" class="aGenre" id="projects">Cars</a>
+            <a href="#" class="aGenre" id="contact">Dementia</a>
+            <a href="#" class="aGenre" id="contact">Demons</a>
+            <a href="#" class="aGenre" id="contact">Drama</a>
+            <a href="#" class="aGenre" id="contact">Ecchi</a>
+            <a href="#" class="aGenre" id="contact">Fantasy</a>
+            <a href="#" class="aGenre" id="contact">Game</a>
+            <a href="#" class="aGenre" id="contact">Harem</a>
+            <a href="#" class="aGenre" id="contact">Hentai</a>
+            <a href="#" class="aGenre" id="contact">Historical</a>
+            <a href="#" class="aGenre" id="contact">Horror</a>
+            <a href="#" class="aGenre" id="contact">Josei</a>
+            <a href="#" class="aGenre" id="contact">Kids</a>
+            <a href="#" class="aGenre" id="contact">Magic</a>
+            <a href="#" class="aGenre" id="contact">Martial Arts</a>
+            <a href="#" class="aGenre" id="contact">Mecha</a>
+            <a href="#" class="aGenre" id="contact">Military</a>
+            <a href="#" class="aGenre" id="contact">Music</a>
+            <a href="#" class="aGenre" id="contact">Mystery</a>
+            <a href="#" class="aGenre" id="contact">Parody</a>
+            <a href="#" class="aGenre" id="blog">Police</a>
+            <a href="#" class="aGenre" id="projects">Psychological</a>
+            <a href="#" class="aGenre" id="contact">Romance</a>
+            <a href="#" class="aGenre" id="contact">Samurai</a>
+            <a href="#" class="aGenre" id="contact">School</a>
+            <a href="#" class="aGenre" id="contact">Sci-Fi</a>
+            <a href="#" class="aGenre" id="contact">Seinen</a>
+            <a href="#" class="aGenre" id="contact">Shoujo</a>
+            <a href="#" class="aGenre" id="contact">Shoujo Ai</a>
+            <a href="#" class="aGenre" id="contact">Shounen</a>
+            <a href="#" class="aGenre" id="contact">Shounen Ai</a>
+            <a href="#" class="aGenre" id="contact">Comedy</a>
+            <a href="#" class="aGenre" id="contact">Slice of Life</a>
+            <a href="#" class="aGenre" id="contact">Space</a>
+            <a href="#" class="aGenre" id="contact">Sports</a>
+            <a href="#" class="aGenre" id="contact">Super Power</a>
+            <a href="#" class="aGenre" id="contact">Supernatural</a>
+            <a href="#" class="aGenre" id="contact">Thriller</a>
+            <a href="#" class="aGenre" id="contact">Vampire</a>
+            <a href="#" class="aGenre" id="contact">Yaoi</a>
+            <a href="#" class="aGenre" id="contact">Yuri</a>
+        </div>
+
         <!--The pop-up login form-->
         <div id="login">
             <div id="login-container" class="containers">
@@ -73,7 +119,12 @@
 
         <!-- Loop divs -->
         <div id="div-container"></div>
-        <script src="script.js" defer></script>
+
+        <!-- Next and prev buttons-->
+        <div class="conBtn">
+            <button id="aMore" onclick="more()">More</button>
+        </div>
         
+        <script src="script.js" defer></script>
     </body>
 </html>

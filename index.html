@@ -23,6 +23,53 @@
             <div class="navIcon"><input type="image" src="pictures\account.png" alt="login" width="30px" height="30px" id="logo" onclick="show('login')" class="icons"></div>
         </div>
 
+        <!--The pop-up login form-->
+        <div id="login">
+            <div id="login-container" class="containers">
+                <div class="top">
+                    <img src="Pictures\Icons\logo.png">
+                    <a class="close" onclick="document.getElementById('login').style.display = 'none'">x</a>
+                </div>
+                <div class="mid">
+                    <input type="email" placeholder="Email" name="email" required><br>
+                    <input type="password" placeholder="Password" name="psw" required> 
+                </div>
+                <div class="mid2">
+                    <span><input type="checkbox" checked="checked"> Remember me</span>
+                    <span>Forgot <a href="#" style="color: black;">password?</a></span>
+                </div>
+                <div class="bot">
+                    <button onclick="document.getElementById('login').style.display = 'none'">Login</button>
+                </div>
+                <div class="bot">
+                    <label>New User?<a onclick="show('signup')"> Sign up</a></label>
+                </div>
+            </div>
+        </div>
+        
+        <!--The pop-up sign-up form-->
+        <div id="signup">
+            <div id="signup-container" class="containers">
+                <div class="top">
+                    <img src="Pictures/Icons\logo.png">
+                    <a class="close" onclick="document.getElementById('signup').style.display = 'none'">x</a>
+                </div>
+                <div class="mid">
+                    <input type="email" placeholder="Email" name="email" required> 
+                    <input type="password" placeholder="Enter Password" name="psw" required> 
+                    <input type="password" placeholder="Confirm Password" name="cpsw" required> 
+                    <input type="text" placeholder="Name" name="name" required> 
+                    <input type="date" placeholder="Date of Birth" name="dob" required> 
+                    <label><input type="checkbox" checked="checked"> I want to receive promotions via email</label>
+                </div>
+                <div class="bot">
+                    <button onclick="document.getElementById('signup').style.display = 'none'">Sign Up</button>
+                </div>
+                <div class="bot">
+                    <label>existing User?<a onclick="show('login')"> Login</a></label>
+                </div>
+            </div>
+        </div>
         
         <div class="slideshow">
             <!-- Slideshow container -->
@@ -167,53 +214,7 @@
             </div>
         </footer>
 
-        <!--The pop-up login form-->
-        <div id="login">
-            <div id="login-container" class="containers">
-                <div class="top">
-                    <img src="Pictures\Icons\logo.png">
-                    <a class="close" onclick="document.getElementById('login').style.display = 'none'">x</a>
-                </div>
-                <div class="mid">
-                    <input type="email" placeholder="Email" name="email" required><br>
-                    <input type="password" placeholder="Password" name="psw" required> 
-                </div>
-                <div class="mid2">
-                    <span><input type="checkbox" checked="checked"> Remember me</span>
-                    <span>Forgot <a href="#" style="color: black;">password?</a></span>
-                </div>
-                <div class="bot">
-                    <button onclick="document.getElementById('login').style.display = 'none'">Login</button>
-                </div>
-                <div class="bot">
-                    <label>New User?<a onclick="show('signup')"> Sign up</a></label>
-                </div>
-            </div>
-        </div>
-        
-        <!--The pop-up sign-up form-->
-        <div id="signup">
-            <div id="signup-container" class="containers">
-                <div class="top">
-                    <img src="Pictures/Icons\logo.png">
-                    <a class="close" onclick="document.getElementById('signup').style.display = 'none'">x</a>
-                </div>
-                <div class="mid">
-                    <input type="email" placeholder="Email" name="email" required> 
-                    <input type="password" placeholder="Enter Password" name="psw" required> 
-                    <input type="password" placeholder="Confirm Password" name="cpsw" required> 
-                    <input type="text" placeholder="Name" name="name" required> 
-                    <input type="date" placeholder="Date of Birth" name="dob" required> 
-                    <label><input type="checkbox" checked="checked"> I want to receive promotions via email</label>
-                </div>
-                <div class="bot">
-                    <button onclick="document.getElementById('signup').style.display = 'none'">Sign Up</button>
-                </div>
-                <div class="bot">
-                    <label>existing User?<a onclick="show('login')"> Login</a></label>
-                </div>
-            </div>
-        </div>
+
         <script src="script.js" defer></script>
         
     </body>
