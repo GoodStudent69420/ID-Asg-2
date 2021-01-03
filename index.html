@@ -27,26 +27,28 @@
         <div class="slideshow">
             <!-- Slideshow container -->
             <div class="slideshow-container">
-                <h1>Top Of The Year</h1>
+                <div class="separator"><b>Upcomming Animes</b></div>
                 
-                <div class="mySlides fade">
-                <img src="http://placehold.it/1920x1080" style="width:100%">
-                <div class="text">Caption Text</div>
+                <div class="mySlides fade" style="text-align: center;">
+                <img src="http://placehold.it/1920x1080" style="width:30%" id="up1">
+                <div class="text" id='upName1'>Text</div>
                 </div>
             
-                <div class="mySlides fade">
-                <img src="http://placehold.it/1920x1080" style="width:100%">
-                <div class="text">Caption Two</div>
+                <div class="mySlides fade" style="text-align: center;">
+                <img src="http://placehold.it/1920x1080" style="width:30%" id="up2">
+                <div class="text" id='upName2'>Text</div>
                 </div>
             
-                <div class="mySlides fade">
-                <img src="http://placehold.it/1920x1080" style="width:100%">
-                <div class="text">Caption Three</div>
+                <div class="mySlides fade" style="text-align: center;">
+                <img src="http://placehold.it/1920x1080" style="width:30%" id="up3">
+                <div class="text" id='upName3'>Text</div>
                 </div>
             
                 <!-- Next and previous buttons -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <div class="arrowBtn">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
             </div>
             <br>
             
@@ -57,55 +59,55 @@
             </div>
         </div>
             
-        <div class="separator"><b>Featutured Animes</b></div>
+        <div class="separator"><b>Top Animes</b></div>
         <div class="wrapper">
             <div class="scrolls">
-                <div class="card"><img src="http://placehold.it/50x50" id="anime1"><h2 id='aTitle1' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime2"><h2 id='aTitle2' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime3"><h2 id='aTitle3' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime4"><h2 id='aTitle4' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime5"><h2 id='aTitle5' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime6"><h2 id='aTitle6' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime7"><h2 id='aTitle7' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime8"><h2 id='aTitle8' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime9"><h2 id='aTitle9' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime10"><h2 id='aTitle10' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime11"><h2 id='aTitle11' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime12"><h2 id='aTitle12' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime13"><h2 id='aTitle13' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime14"><h2 id='aTitle14' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime15"><h2 id='aTitle15' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime16"><h2 id='aTitle16' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime17"><h2 id='aTitle17' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime18"><h2 id='aTitle18' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime19"><h2 id='aTitle19' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id="anime20"><h2 id='aTitle20' class='aTitle'>Anime</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime1"><h5 id='aTitle1' class='aTitle'>Anime</h5><p class="desc" id="aDesc1">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime2"><h5 id='aTitle2' class='aTitle'>Anime</h5><p class="desc" id="aDesc2">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime3"><h5 id='aTitle3' class='aTitle'>Anime</h5><p class="desc" id="aDesc3">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime4"><h5 id='aTitle4' class='aTitle'>Anime</h5><p class="desc" id="aDesc4">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime5"><h5 id='aTitle5' class='aTitle'>Anime</h5><p class="desc" id="aDesc5">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime6"><h5 id='aTitle6' class='aTitle'>Anime</h5><p class="desc" id="aDesc6">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime7"><h5 id='aTitle7' class='aTitle'>Anime</h5><p class="desc" id="aDesc7">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime8"><h5 id='aTitle8' class='aTitle'>Anime</h5><p class="desc" id="aDesc8">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime9"><h5 id='aTitle9' class='aTitle'>Anime</h5><p class="desc" id="aDesc9">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime10"><h5 id='aTitle10' class='aTitle'>Anime</h5><p class="desc" id="aDesc10">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime11"><h5 id='aTitle11' class='aTitle'>Anime</h5><p class="desc" id="aDesc11">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime12"><h5 id='aTitle12' class='aTitle'>Anime</h5><p class="desc" id="aDesc12">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime13"><h5 id='aTitle13' class='aTitle'>Anime</h5><p class="desc" id="aDesc13">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime14"><h5 id='aTitle14' class='aTitle'>Anime</h5><p class="desc" id="aDesc14">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime15"><h5 id='aTitle15' class='aTitle'>Anime</h5><p class="desc" id="aDesc15">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime16"><h5 id='aTitle16' class='aTitle'>Anime</h5><p class="desc" id="aDesc16">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime17"><h5 id='aTitle17' class='aTitle'>Anime</h5><p class="desc" id="aDesc17">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime18"><h5 id='aTitle18' class='aTitle'>Anime</h5><p class="desc" id="aDesc18">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime19"><h5 id='aTitle19' class='aTitle'>Anime</h5><p class="desc" id="aDesc19">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id="anime20"><h5 id='aTitle20' class='aTitle'>Anime</h5><p class="desc" id="aDesc20">Rating</p></div>
             </div>
         </div>
 
-        <div class="separator"><b>Featutured Mangas</b></div>
+        <div class="separator"><b>Top Mangas</b></div>
         <div class="wrapper">
             <div class="scrolls">
-                <div class="card"><img src="http://placehold.it/50x50" id='manga1'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga2'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga3'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga4'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga5'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga6'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga7'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga8'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga9'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga10'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga11'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga12'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga13'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga14'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga15'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga16'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga17'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga18'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga19'><h2>Manga</h2><p class="desc">Rating</p></div>
-                <div class="card"><img src="http://placehold.it/50x50" id='manga20'><h2>Manga</h2><p class="desc">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga1'><h5 id='mTitle1' class='mTitle'>Manga</h5><p class="desc" id="mDesc1">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga2'><h5 id='mTitle2' class='mTitle'>Manga</h5><p class="desc" id="mDesc2">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga3'><h5 id='mTitle3' class='mTitle'>Manga</h5><p class="desc" id="mDesc3">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga4'><h5 id='mTitle4' class='mTitle'>Manga</h5><p class="desc" id="mDesc4">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga5'><h5 id='mTitle5' class='mTitle'>Manga</h5><p class="desc" id="mDesc5">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga6'><h5 id='mTitle6' class='mTitle'>Manga</h5><p class="desc" id="mDesc6">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga7'><h5 id='mTitle7' class='mTitle'>Manga</h5><p class="desc" id="mDesc7">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga8'><h5 id='mTitle8' class='mTitle'>Manga</h5><p class="desc" id="mDesc8">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga9'><h5 id='mTitle9' class='mTitle'>Manga</h5><p class="desc" id="mDesc9">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga10'><h5 id='mTitle10' class='mTitle'>Manga</h5><p class="desc" id="mDesc10">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga11'><h5 id='mTitle11' class='mTitle'>Manga</h5><p class="desc" id="mDesc11">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga12'><h5 id='mTitle12' class='mTitle'>Manga</h5><p class="desc" id="mDesc12">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga13'><h5 id='mTitle13' class='mTitle'>Manga</h5><p class="desc" id="mDesc13">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga14'><h5 id='mTitle14' class='mTitle'>Manga</h5><p class="desc" id="mDesc14">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga15'><h5 id='mTitle15' class='mTitle'>Manga</h5><p class="desc" id="mDesc15">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga16'><h5 id='mTitle16' class='mTitle'>Manga</h5><p class="desc" id="mDesc16">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga17'><h5 id='mTitle17' class='mTitle'>Manga</h5><p class="desc" id="mDesc17">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga18'><h5 id='mTitle18' class='mTitle'>Manga</h5><p class="desc" id="mDesc18">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga19'><h5 id='mTitle19' class='mTitle'>Manga</h5><p class="desc" id="mDesc19">Rating</p></div>
+                <div class="card"><img src="http://placehold.it/50x50" id='manga20'><h5 id='mTitle20' class='mTitle'>Manga</h5><p class="desc" id="mDesc20">Rating</p></div>
             </div>
         </div>
         
@@ -131,8 +133,6 @@
                 <li class="selectionLi"><a href="#" class="selectionA">About</a></li>
             </ul>
         </div>
-
-        <p><button id='btnFetch'>Send Request</button></p>
 
         <!-- Footer -->
         <footer>
