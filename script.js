@@ -79,56 +79,97 @@ if(page == "index.html")
 if(page == "content.html"){
   var container = document.getElementById('div-container')
   var pageNo = 1
-  var topHeight = 10.5
+  var topHeight = 9.5
+  var currentGenre = ""
 
-  red = 200
-  green = 200
-  blue = 200
+  red = 60
+  green = 60
+  blue = 60
 
-  function fetchData(){
-    fetch('https://api.jikan.moe/v3/top/anime/'+ pageNo.toString() +'/tv')
+  function fetchData(req, type, subtype){
+    fetch('https://api.jikan.moe/v3/'+req+'/'+type+'/'+ pageNo.toString() +'/'+subtype+'')
     .then(response => response.json()) 
     .then(function(data){
       console.log(data)
   
       let i = 0
       while (i < (data.top).length){
-        var id = "aContent" + (i).toString()
-        container.innerHTML += ("<div class='items'><img src='" + data.top[i].image_url + "' id='aContent"+i+"'></div>");
+        container.innerHTML += ("<div class='items' id='"+ data.top[i].mal_id +"'><img src='" + data.top[i].image_url + "' id='aContent"+i+"'></div>");
         i ++
       }
     });
   }
 
-  function more(){
-    pageNo += 1
-    fetchData()
-  }
-
   var genres = document.getElementById("genres").childNodes
-  genres[1].style.top= "8.5%"
+  genres[1].style.top= "7.5%"
   genres[1].style.backgroundColor = "rgb("+red+", "+green+", "+blue+")"
 
-  console.log(genres.length)
-  for (let i = 3; i <= genres.length; i += 2){
-    
-    if (red <= 50){
-      red = 200
-      green = 200
-      blue = 200
+  for (let i = 3; i <= genres.length - 1; i += 2){
+    if (red == 60){
+      red += 20
+      green += 20
+      blue += 20
     }
-    else{
-      red -= 10
-      green -= 10
-      blue -= 10
+    else if (red == 80){
+      red -= 20
+      green -= 20
+      blue -= 20
     }
 
     genres[i].style.top = topHeight.toString() + "%"
     genres[i].style.backgroundColor = "rgb("+red+", "+green+", "+blue+")"
-
     topHeight += 2
   }
+
+  $('.aGenre').click(function() {
+    container.innerHTML = ''
+    currentGenre = this.id
+    pageNo = 1
+
+    fetch('https://api.jikan.moe/v3/genre/anime/'+ currentGenre.toString() +'/'+pageNo.toString()+'')
+    .then(response => response.json()) 
+    .then(function(data){
+      console.log(data)
+      let i = 0
+      while (i < (data.anime).length){
+        container.innerHTML += ("<div class='items' id='"+ data.anime[i].mal_id +"'><img src='" + data.anime[i].image_url + "' id='aContent"+i+"'></div>");
+        i ++
+      }
+    });
+  });
+
+  // for displaying data when the item is clicked
+  $("body").on("click", ".items", function(event){
+    let aId = this.id
+    fetch('https://api.jikan.moe/v3/anime/' + aId)
+    .then(response => response.json()) 
+    .then(function(data){
+      alert(data.title)
+      console.log(data)
+    });
+  })
+ 
+ function more(){
+    if (currentGenre == ""){
+      pageNo += 1
+      fetchData('top', 'anime', 'tv')
+    }
+    else{
+      pageNo ++
+      fetch('https://api.jikan.moe/v3/genre/anime/'+ currentGenre.toString() +'/'+pageNo.toString()+'')
+      .then(response => response.json()) 
+      .then(function(data){
+      console.log(data)
+      let i = 0
+      while (i < (data.anime).length){
+        container.innerHTML += ("<div class='items' id='"+ data.anime[i].mal_id +"'><img src='" + data.anime[i].image_url + "' id='aContent"+i+"'></div>");
+        i ++
+      }
+      });
+    }
+  }
 }
+
 
 //on all pages
 //login and sign up form

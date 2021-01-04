@@ -9,64 +9,65 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="style.css">
     </head>
-    <body onload="fetchData()">
+    <body onload="fetchData('top', 'anime', 'tv')">
         <!-- Navigation bar -->
         <div class="navDiv">
             <div class="aNav"><a href="#home" class="aNav">Home</a></div>
             <div class="content">
                 <button class="contentBtn">Content</button>
                 <div class="dropdownContent">
-                    <a href="#">Anime</a>
-                    <a href="#">Manga</a>
+                    <a>Anime</a>
+                    <a>Manga</a>
                 </div>
             </div>
             <div class="navIcon"><input type="image" src="pictures\account.png" alt="login" width="30px" height="30px" id="logo" onclick="show('login')" class="icons"></div>
         </div>
         
         <div id="genres" class="sidenav">
-            <a href="#" class="aGenre" id="about">Action</a>
-            <a href="#" class="aGenre" id="blog">Adventure</a>
-            <a href="#" class="aGenre" id="projects">Cars</a>
-            <a href="#" class="aGenre" id="contact">Dementia</a>
-            <a href="#" class="aGenre" id="contact">Demons</a>
-            <a href="#" class="aGenre" id="contact">Drama</a>
-            <a href="#" class="aGenre" id="contact">Ecchi</a>
-            <a href="#" class="aGenre" id="contact">Fantasy</a>
-            <a href="#" class="aGenre" id="contact">Game</a>
-            <a href="#" class="aGenre" id="contact">Harem</a>
-            <a href="#" class="aGenre" id="contact">Hentai</a>
-            <a href="#" class="aGenre" id="contact">Historical</a>
-            <a href="#" class="aGenre" id="contact">Horror</a>
-            <a href="#" class="aGenre" id="contact">Josei</a>
-            <a href="#" class="aGenre" id="contact">Kids</a>
-            <a href="#" class="aGenre" id="contact">Magic</a>
-            <a href="#" class="aGenre" id="contact">Martial Arts</a>
-            <a href="#" class="aGenre" id="contact">Mecha</a>
-            <a href="#" class="aGenre" id="contact">Military</a>
-            <a href="#" class="aGenre" id="contact">Music</a>
-            <a href="#" class="aGenre" id="contact">Mystery</a>
-            <a href="#" class="aGenre" id="contact">Parody</a>
-            <a href="#" class="aGenre" id="blog">Police</a>
-            <a href="#" class="aGenre" id="projects">Psychological</a>
-            <a href="#" class="aGenre" id="contact">Romance</a>
-            <a href="#" class="aGenre" id="contact">Samurai</a>
-            <a href="#" class="aGenre" id="contact">School</a>
-            <a href="#" class="aGenre" id="contact">Sci-Fi</a>
-            <a href="#" class="aGenre" id="contact">Seinen</a>
-            <a href="#" class="aGenre" id="contact">Shoujo</a>
-            <a href="#" class="aGenre" id="contact">Shoujo Ai</a>
-            <a href="#" class="aGenre" id="contact">Shounen</a>
-            <a href="#" class="aGenre" id="contact">Shounen Ai</a>
-            <a href="#" class="aGenre" id="contact">Comedy</a>
-            <a href="#" class="aGenre" id="contact">Slice of Life</a>
-            <a href="#" class="aGenre" id="contact">Space</a>
-            <a href="#" class="aGenre" id="contact">Sports</a>
-            <a href="#" class="aGenre" id="contact">Super Power</a>
-            <a href="#" class="aGenre" id="contact">Supernatural</a>
-            <a href="#" class="aGenre" id="contact">Thriller</a>
-            <a href="#" class="aGenre" id="contact">Vampire</a>
-            <a href="#" class="aGenre" id="contact">Yaoi</a>
-            <a href="#" class="aGenre" id="contact">Yuri</a>
+            <a class="aGenre" id="1">Action</a>
+            <a class="aGenre" id="2">Adventure</a>
+            <a class="aGenre" id="3">Cars</a>
+            <a class="aGenre" id="4">Comedy</a>
+            <a class="aGenre" id="5">Dementia</a>
+            <a class="aGenre" id="6">Demons</a>
+            <a class="aGenre" id="8">Drama</a>
+            <a class="aGenre" id="9">Ecchi</a>
+            <a class="aGenre" id="10">Fantasy</a>
+            <a class="aGenre" id="11">Game</a>
+            <a class="aGenre" id="35">Harem</a>
+            <a class="aGenre" id="12">Hentai</a>
+            <a class="aGenre" id="13">Historical</a>
+            <a class="aGenre" id="14">Horror</a>
+            <a class="aGenre" id="43">Josei</a>
+            <a class="aGenre" id="15">Kids</a>
+            <a class="aGenre" id="16">Magic</a>
+            <a class="aGenre" id="17">Martial Arts</a>
+            <a class="aGenre" id="18">Mecha</a>
+            <a class="aGenre" id="38">Military</a>
+            <a class="aGenre" id="19">Music</a>
+            <a class="aGenre" id="7">Mystery</a>
+            <a class="aGenre" id="20">Parody</a>
+            <a class="aGenre" id="39">Police</a>
+            <a class="aGenre" id="40">Psychological</a>
+            <a class="aGenre" id="22">Romance</a>
+            <a class="aGenre" id="21">Samurai</a>
+            <a class="aGenre" id="23">School</a>
+            <a class="aGenre" id="24">Sci-Fi</a>
+            <a class="aGenre" id="42">Seinen</a>
+            <a class="aGenre" id="25">Shoujo</a>
+            <a class="aGenre" id="26">Shoujo Ai</a>
+            <a class="aGenre" id="27">Shounen</a>
+            <a class="aGenre" id="28">Shounen Ai</a>
+            <a class="aGenre" id="36">Comedy</a>
+            <a class="aGenre" id="36">Slice of Life</a>
+            <a class="aGenre" id="29">Space</a>
+            <a class="aGenre" id="30">Sports</a>
+            <a class="aGenre" id="39">Super Power</a>
+            <a class="aGenre" id="37">Supernatural</a>
+            <a class="aGenre" id="41">Thriller</a>
+            <a class="aGenre" id="32">Vampire</a>
+            <a class="aGenre" id="33">Yaoi</a>
+            <a class="aGenre" id="34">Yuri</a>
         </div>
 
         <!--The pop-up login form-->
@@ -82,7 +83,7 @@
                 </div>
                 <div class="mid2">
                     <span><input type="checkbox" checked="checked"> Remember me</span>
-                    <span>Forgot <a href="#" style="color: black;">password?</a></span>
+                    <span>Forgot <a style="color: black;">password?</a></span>
                 </div>
                 <div class="bot">
                     <button onclick="document.getElementById('login').style.display = 'none'">Login</button>
@@ -125,6 +126,7 @@
             <button id="aMore" onclick="more()">More</button>
         </div>
         
-        <script src="script.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>

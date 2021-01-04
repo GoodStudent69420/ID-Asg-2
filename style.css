@@ -357,6 +357,19 @@ footer{
   font-size: 0px;
   box-shadow: 1px 1px 10px #999; 
   margin: 10px;
+  cursor: pointer;
+}
+
+.itemsDesc{
+  width: 270px;
+  height: 400px;
+  background-color: white;
+  z-index: 999;
+}
+
+.items:hover{
+  transition: 0.2s;
+  transform: scale(1.1);
 }
 
 .items img{
@@ -389,7 +402,8 @@ footer{
   font-size: 20px;
   color: white;
   border-radius: 0 5px 5px 0;
-  background-color: CMYK(100%, 0%, 0%, 15%);
+  background-color: black;
+  cursor: pointer;
 }
 
 #genres a:hover {
