@@ -346,11 +346,20 @@ footer{
 /*--------------------CSS PORTION FOR Content.HTML PAGE-----------------------*/
 /* Flex boxes */
 #div-container{
-  padding-top: 100px;
+  padding-top: 8%;
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.search{
+  text-align: center;
+  padding-top: 3%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  background-color: white;
 }
 
 .items{
@@ -370,6 +379,7 @@ footer{
 .items:hover{
   transition: 0.2s;
   transform: scale(1.1);
+  z-index: 4;
 }
 
 .items img{
@@ -404,6 +414,7 @@ footer{
   border-radius: 0 5px 5px 0;
   background-color: black;
   cursor: pointer;
+  z-index: 3;
 }
 
 #genres a:hover {

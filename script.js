@@ -81,11 +81,13 @@ if(page == "content.html"){
   var pageNo = 1
   var topHeight = 9.5
   var currentGenre = ""
+  var value = ""
 
   red = 60
   green = 60
   blue = 60
 
+  //get data when content page is loaded
   function fetchData(req, type, subtype){
     fetch('https://api.jikan.moe/v3/'+req+'/'+type+'/'+ pageNo.toString() +'/'+subtype+'')
     .then(response => response.json()) 
@@ -99,7 +101,8 @@ if(page == "content.html"){
       }
     });
   }
-
+  
+  //set colours for each genre bar
   var genres = document.getElementById("genres").childNodes
   genres[1].style.top= "7.5%"
   genres[1].style.backgroundColor = "rgb("+red+", "+green+", "+blue+")"
@@ -121,11 +124,12 @@ if(page == "content.html"){
     topHeight += 2
   }
 
+  // function to make the genre selection work
   $('.aGenre').click(function() {
     container.innerHTML = ''
     currentGenre = this.id
     pageNo = 1
-
+    value = ""
     fetch('https://api.jikan.moe/v3/genre/anime/'+ currentGenre.toString() +'/'+pageNo.toString()+'')
     .then(response => response.json()) 
     .then(function(data){
@@ -138,6 +142,22 @@ if(page == "content.html"){
     });
   });
 
+  //search function
+  function search(){
+    container.innerHTML = ''
+    value = document.getElementById("searchTxt").value
+    fetch("https://api.jikan.moe/v3/search/anime?q="+ value)
+    .then(response => response.json()) 
+    .then(function(data){
+      console.log(data)
+      let i = 0
+      while (i < (data.results).length){
+        container.innerHTML += ("<div class='items' id='"+ data.results[i].mal_id +"'><img src='" + data.results[i].image_url + "' id='aContent"+i+"'></div>");
+        i ++  
+      }
+    });
+  }
+
   // for displaying data when the item is clicked
   $("body").on("click", ".items", function(event){
     let aId = this.id
@@ -148,14 +168,15 @@ if(page == "content.html"){
       console.log(data)
     });
   })
- 
- function more(){
-    if (currentGenre == ""){
+
+  //function to make the more button work
+  function more(){
+    if (currentGenre == "" && value == ""){
       pageNo += 1
       fetchData('top', 'anime', 'tv')
     }
-    else{
-      pageNo ++
+    else if (value == ""){
+      pageNo ++ 
       fetch('https://api.jikan.moe/v3/genre/anime/'+ currentGenre.toString() +'/'+pageNo.toString()+'')
       .then(response => response.json()) 
       .then(function(data){
@@ -169,7 +190,6 @@ if(page == "content.html"){
     }
   }
 }
-
 
 //on all pages
 //login and sign up form
