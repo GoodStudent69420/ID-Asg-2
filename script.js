@@ -82,13 +82,45 @@ if(page == "content.html"){
   var topHeight = 9.5
   var currentGenre = ""
   var value = ""
+  var red = 60
+  var green = 60
+  var blue = 60
+  var genres = document.getElementById("genres").childNodes
+  
+  contentType = JSON.parse(sessionStorage.getItem("type"))
+  console.log(contentType)
 
-  red = 60
-  green = 60
-  blue = 60
+  //what to do if the content type is anime or manga
+  if (contentType == "anime"){
+    $("#44").css("display", "none")
+    $("#45").css("display", "none")
+    genres[1].style.top= "7.5%"
+  }
+  else{
+    $('#42').attr("id","41")
+    $('#43').attr("id","42")
+    $('#41').attr("id","45")
+    $('#45').attr("id","43")
 
+    genres[1].style.top= "5.5%"
+    topHeight = 7.5
+  }
+
+  
   //get data when content page is loaded
-  function fetchData(req, type, subtype){
+  var req1 = "top"
+  var type1 = ""
+  var subtype1 = ""
+
+  if (contentType == "anime"){
+    var type1 = "anime"
+    var subtype1 = "tv"
+  }
+  else{
+    var type1 = "manga"
+    var subtype1 = "manga"
+  }
+  function fetchData(req = req1, type = type1, subtype = subtype1){
     fetch('https://api.jikan.moe/v3/'+req+'/'+type+'/'+ pageNo.toString() +'/'+subtype+'')
     .then(response => response.json()) 
     .then(function(data){
@@ -96,15 +128,14 @@ if(page == "content.html"){
   
       let i = 0
       while (i < (data.top).length){
-        container.innerHTML += ("<div class='items' id='"+ data.top[i].mal_id +"'><img src='" + data.top[i].image_url + "' id='aContent"+i+"'></div>");
+        container.innerHTML += ("<div class='items' id='"+ data.top[i].mal_id +"' title='"+ data.top[i].title +"'><img src='" + data.top[i].image_url + "' id='aContent"+i+"'></div>");
         i ++
       }
     });
   }
+
   
   //set colours for each genre bar
-  var genres = document.getElementById("genres").childNodes
-  genres[1].style.top= "7.5%"
   genres[1].style.backgroundColor = "rgb("+red+", "+green+", "+blue+")"
 
   for (let i = 3; i <= genres.length - 1; i += 2){
@@ -130,15 +161,23 @@ if(page == "content.html"){
     currentGenre = this.id
     pageNo = 1
     value = ""
-    fetch('https://api.jikan.moe/v3/genre/anime/'+ currentGenre.toString() +'/'+pageNo.toString()+'')
+    fetch('https://api.jikan.moe/v3/genre/'+contentType+'/'+ currentGenre.toString() +'/'+pageNo.toString()+'')
     .then(response => response.json()) 
     .then(function(data){
       console.log(data)
       let i = 0
-      while (i < (data.anime).length){
-        container.innerHTML += ("<div class='items' id='"+ data.anime[i].mal_id +"'><img src='" + data.anime[i].image_url + "' id='aContent"+i+"'></div>");
-        i ++
+      if (contentType == "anime"){
+        while (i < (data.anime).length){
+          container.innerHTML += ("<div class='items' id='"+ data.anime[i].mal_id +"' title='"+ data.anime[i].title +"'><img src='" + data.anime[i].image_url + "' id='aContent"+i+"'></div>");
+          i ++
+        }
       }
+      else{
+        while (i < (data.manga).length){
+          container.innerHTML += ("<div class='items' id='"+ data.manga[i].mal_id +"' title='"+ data.manga[i].title +"'><img src='" + data.manga[i].image_url + "' id='aContent"+i+"'></div>");
+          i ++
+        }
+      }           
     });
   });
 
@@ -146,13 +185,13 @@ if(page == "content.html"){
   function search(){
     container.innerHTML = ''
     value = document.getElementById("searchTxt").value
-    fetch("https://api.jikan.moe/v3/search/anime?q="+ value)
+    fetch("https://api.jikan.moe/v3/search/"+contentType+"?q="+ value)
     .then(response => response.json()) 
     .then(function(data){
       console.log(data)
       let i = 0
       while (i < (data.results).length){
-        container.innerHTML += ("<div class='items' id='"+ data.results[i].mal_id +"'><img src='" + data.results[i].image_url + "' id='aContent"+i+"'></div>");
+        container.innerHTML += ("<div class='items' id='"+ data.results[i].mal_id +"' title='"+ data.results[i].title +"'><img src='" + data.results[i].image_url + "' id='aContent"+i+"'></div>");
         i ++  
       }
     });
@@ -161,11 +200,15 @@ if(page == "content.html"){
   // for displaying data when the item is clicked
   $("body").on("click", ".items", function(event){
     let aId = this.id
-    fetch('https://api.jikan.moe/v3/anime/' + aId)
+    fetch('https://api.jikan.moe/v3/'+contentType+'/' + aId)
     .then(response => response.json()) 
     .then(function(data){
-      alert(data.title)
       console.log(data)
+      document.getElementById("detailsBox").style.display = "block";
+
+      document.getElementById("title").innerHTML = data.title
+      document.getElementById("contentImage").src = data.image_url
+      document.getElementById("synopsis").innerHTML = data.synopsis
     });
   })
 
@@ -173,32 +216,52 @@ if(page == "content.html"){
   function more(){
     if (currentGenre == "" && value == ""){
       pageNo += 1
-      fetchData('top', 'anime', 'tv')
+      if (contentType == "anime"){
+        fetchData('top', 'anime', 'tv')
+      }
+      else{
+        fetchData('top', 'manga', 'manga')
+      }
     }
     else if (value == ""){
       pageNo ++ 
-      fetch('https://api.jikan.moe/v3/genre/anime/'+ currentGenre.toString() +'/'+pageNo.toString()+'')
+      fetch('https://api.jikan.moe/v3/genre/'+contentType+'/'+ currentGenre.toString() +'/'+pageNo.toString()+'')
       .then(response => response.json()) 
       .then(function(data){
-      console.log(data)
-      let i = 0
-      while (i < (data.anime).length){
-        container.innerHTML += ("<div class='items' id='"+ data.anime[i].mal_id +"'><img src='" + data.anime[i].image_url + "' id='aContent"+i+"'></div>");
-        i ++
-      }
+        console.log(data)
+        let i = 0
+        if (contentType == "anime"){
+          while (i < (data.anime).length){
+            container.innerHTML += ("<div class='items' id='"+ data.anime[i].mal_id +"' title='"+ data.anime[i].title +"'><img src='" + data.anime[i].image_url + "' id='aContent"+i+"'></div>");
+            i ++
+          }
+        }
+        else{
+          while (i < (data.manga).length){
+            container.innerHTML += ("<div class='items' id='"+ data.manga[i].mal_id +"' title='"+ data.manga[i].title +"'><img src='" + data.manga[i].image_url + "' id='aContent"+i+"'></div>");
+            i ++
+          }
+        }           
       });
     }
   }
 }
 
-//on all pages
+//will work on all pages
+//pass content type data
+$('.type').click(function() {
+  sessionStorage.setItem("type",JSON.stringify(this.id));
+});
+
 //login and sign up form
-var modal = document.getElementById('login'); 
-var modal2 = document.getElementById('signup'); 
+var login = document.getElementById('login'); 
+var signup = document.getElementById('signup'); 
+var detailsBox = document.getElementById('detailsBox'); 
 window.onclick = function(event) { 
-    if (event.target == modal || event.target == modal2) { 
-        modal.style.display = "none"; 
-        modal2.style.display = "none";
+    if (event.target == login || event.target == signup || event.target == detailsBox) { 
+        login.style.display = "none"; 
+        signup.style.display = "none";
+        detailsBox.style.display = "none";
     } 
 }
 

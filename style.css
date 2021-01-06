@@ -1,3 +1,8 @@
+/* fade animation for anything that uses it */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 /* CSS PORTION FOR INDEX.HTML
 ---every thing for the nav bar*/
 a {
@@ -61,6 +66,7 @@ a {
 
 .dropdownContent a:hover{
   background-color: #e8e8e8;
+  cursor: pointer;
 }
 
 .content:hover .dropdownContent {
@@ -185,11 +191,6 @@ a {
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
 }
   
 /* Featured Anime & Manga */
@@ -353,15 +354,6 @@ footer{
   justify-content: center;
 }
 
-.search{
-  text-align: center;
-  padding-top: 3%;
-  width: 100%;
-  position: fixed;
-  z-index: 2;
-  background-color: white;
-}
-
 .items{
   font-size: 0px;
   box-shadow: 1px 1px 10px #999; 
@@ -379,7 +371,6 @@ footer{
 .items:hover{
   transition: 0.2s;
   transform: scale(1.1);
-  z-index: 4;
 }
 
 .items img{
@@ -389,6 +380,21 @@ footer{
   max-height: 100%;
 }
 
+/* search */
+.search{
+  text-align: center;
+  padding-top: 3%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  background-color: white;
+}
+
+.search button:hover{
+  cursor: pointer;
+}
+
+/* "more" button */
 .conBtn{
   text-align: center;
   margin-top: 2%;
@@ -402,9 +408,14 @@ footer{
   font-size: 14px;
 }
 
+#aMore:hover{
+  cursor: pointer;
+}
+
+/* genre tabs design */
 #genres a {
   position: fixed;
-  left: -80px;
+  left: -130px;
   transition: 0.3s;
   padding: 15px;
   width: 100px;
@@ -415,10 +426,62 @@ footer{
   background-color: black;
   cursor: pointer;
   z-index: 3;
+  padding-right: 2.5%;
 }
 
 #genres a:hover {
-  padding-left: 9%;
+  padding-left: 11%;
+}
+
+/* popup content details box */
+/* The Modal (background) */
+.details {
+  display: none; 
+  position: fixed; 
+  z-index: 4; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.detailsContent {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  margin-top: 5%;
+  padding: 0;
+  border: 1px solid #888;
+  width:40%;
+  box-shadow: 1px 1px 10px #999; 
+  animation: fadeIn 0.4s;
+}
+
+
+
+.detailsHeader {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.detailsBody {
+  display: flex;
+}
+
+.detailsBody div{
+  margin: 10px;
+}
+
+.detailsFooter {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
 }
 
 /*----------------------------CSS PORTION FOR POP-UP LOGIN & SIGN UP----------------------------*/
@@ -534,17 +597,8 @@ input[type=text] {
 
 /*animation*/
 .containers {
-  animation: fadeIn ease 0.5s;
+  animation: fadeIn 0.4s;
 }
-@keyframes fadeIn {
-  0% {
-      opacity:0;
-  }
-  100% {
-      opacity:1;
-  }
-}  
-
 
 /*responsive*/
 @media screen and (max-width: 1250px){
@@ -588,32 +642,6 @@ input[type=text] {
   
 @media screen and (max-width: 650px) {
 /*--------------------RESPONSIVE FOR INDEX.HTML PAGE-----------------------*/
-  nav {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    overflow-x: hidden;
-  }
-
-  .navLi{
-    font-size: small;
-  }
-  
-  .trending{
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-  }
-
-  .disBtn1, .disBtn2, .disBtn3{
-    transform: translate(-50%, -200%);
-
-  }
-
-  .bigDisBtn {
-    margin-top: -30px;
-    }
-
   .selection{
     display: flex;
     flex-direction: column;
@@ -630,44 +658,7 @@ input[type=text] {
   .selectionUl{
     margin: 10px;
   }
-
-  footer{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    bottom: 0;
-  }
-
-  .footerUl{
-    font-size: medium;
-    margin: 0;
-  }
-
-  .footerUlSocial{
-    margin-top: 0;
-  }
-
-  .socialLi{
-    margin: 5px;
-  }
-
-  .footerImages{
-    width: 20px; 
-    height: 20px;
-  }
-
-  .footerSection{
-    display: flex;
-    flex-direction: column;
-    font-size: small;
-    margin-left: 10px;
-  }
-
-  .footerCopyright{
-    display: flex;
-    justify-content: space-between;
-  }
-
+  
   /*--------------------RESPONSIVE FOR LOGIN & SIGNUP PAGE-----------------------*/
   #login, #signup{
     padding-top: 50%;
