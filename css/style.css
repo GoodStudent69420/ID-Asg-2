@@ -3,13 +3,12 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-/*------------------ CSS PORTION FOR INDEX.HTML ---------------------
+/* CSS PORTION FOR INDEX.HTML
 ---every thing for the nav bar*/
 a {
     text-decoration: none;
   }
   
-/* all css for nav bar*/
 .navDiv{
   font-family: 'Times New Roman', Times, serif;
   background-color: black;
@@ -198,6 +197,7 @@ a {
 }
 
 /* Featured Anime & Manga */
+
 .wrapper { 
   box-shadow: 1px 1px 10px #999; 
   margin: auto; 
@@ -340,7 +340,7 @@ footer{
 }
 
 /*--------------------CSS PORTION FOR Content.HTML PAGE-----------------------*/
-/* data flex boxes */
+/* Flex boxes */
 #div-container{
   padding-top: 8%;
   display: flex;
@@ -595,14 +595,13 @@ input[type=text] {
   border-radius: 5px;
 } 
 
-/*animation when appearing*/
+/*animation*/
 .containers {
   animation: fadeIn 0.4s;
 }
 
 /*responsive*/
 @media screen and (max-width: 1250px){
-  /*--------------------RESPONSIVE FOR INDEX.HTML PAGE-----------------------*/
   footer{
     position: relative;
     display: flex;

@@ -39,7 +39,7 @@ if(page == "index.html")
   var con3 = document.getElementById("slideCon")
   let d = new Date();
 
-  //for getting season
+  //for getting season & year
   function getSeason() {
     month = d.getMonth() + 1;
     if (3 <= month && month <= 5) {
@@ -60,6 +60,7 @@ if(page == "index.html")
     return d.getFullYear();
   }
 
+  //load data into slides
   function fetchSlideCon(){
     fetch('https://api.jikan.moe/v3/top/anime/1/upcoming')
     .then(response => response.json()) 
@@ -83,6 +84,7 @@ if(page == "index.html")
     });
   }
 
+  //load data into seasonal anime slider
   function fetchAnime(){
     let season = getSeason()
     let year = getYear()
@@ -106,6 +108,7 @@ if(page == "index.html")
     });
   }
 
+  //load data into popular manga slider
   function fetchManga(){
     fetch('https://api.jikan.moe/v3/top/manga/1/bypopularity')
     .then(response => response.json()) 
@@ -129,12 +132,20 @@ if(page == "index.html")
     .then(function(data){
       console.log(data)  
       document.getElementById("detailsBox").style.display = "block";
-      document.getElementById("title").innerHTML = data.title
+      document.getElementById("title").innerHTML = data.title + "("+ contentType +")"
       document.getElementById("contentImage").src = data.image_url
       document.getElementById("synopsis").innerHTML = data.synopsis
+      if (data.score != null){document.getElementById("rating").innerHTML = ("Rating: " + data.score + "/10")}
+      else{document.getElementById("rating").innerHTML = "Rating: TBA" }
+      
+      for (let i=0; i < (data.genres).length; i++){
+        if(i == (data.genres).length - 1){document.getElementById("contentGenres").innerHTML += " " + data.genres[i].name}
+        else{document.getElementById("contentGenres").innerHTML += " " + data.genres[i].name + ","}   
+      }
     });
   })
 
+  //// for displaying data when the item is clicked 
   $("body").on("click", ".slides", function(){
     let aId = this.id
     let contentType = this.title
@@ -143,9 +154,16 @@ if(page == "index.html")
     .then(function(data){
       console.log(data)  
       document.getElementById("detailsBox").style.display = "block";
-      document.getElementById("title").innerHTML = data.title
+      document.getElementById("title").innerHTML = data.title + " ("+ contentType +")"
       document.getElementById("contentImage").src = data.image_url
       document.getElementById("synopsis").innerHTML = data.synopsis
+      if (data.score != null){document.getElementById("rating").innerHTML = ("Rating: " + data.score + "/10")}
+      else{document.getElementById("rating").innerHTML = "Rating: TBA" }
+
+      for (let i=0; i < (data.genres).length; i++){
+        if(i == (data.genres).length - 1){document.getElementById("contentGenres").innerHTML += " " + data.genres[i].name}
+        else{document.getElementById("contentGenres").innerHTML += " " + data.genres[i].name + ","}   
+      }
     });
   })
 }
@@ -181,7 +199,7 @@ if(page == "content.html")
     topHeight = 7.5
   }
 
-  //get data when content page is loaded
+  //get and display data when content page is loaded
   var req1 = "top"
   var type1 = ""
   var subtype1 = ""
@@ -257,18 +275,21 @@ if(page == "content.html")
 
   //search function
   function search(){
-    container.innerHTML = ''
     value = document.getElementById("searchTxt").value
-    fetch("https://api.jikan.moe/v3/search/"+contentType+"?q="+ value)
-    .then(response => response.json()) 
-    .then(function(data){
-      console.log(data)
-      let i = 0
-      while (i < (data.results).length){
-        container.innerHTML += ("<div class='items' id='"+ data.results[i].mal_id +"' title='"+ data.results[i].title +"'><img src='" + data.results[i].image_url + "' id='aContent"+i+"'></div>");
-        i ++  
-      }
-    });
+    if (value.length > 2 ){
+      container.innerHTML = ''
+      fetch("https://api.jikan.moe/v3/search/"+contentType+"?q="+ value)
+      .then(response => response.json()) 
+      .then(function(data){
+        console.log(data)
+        let i = 0
+        while (i < (data.results).length){
+          container.innerHTML += ("<div class='items' id='"+ data.results[i].mal_id +"' title='"+ data.results[i].title +"'><img src='" + data.results[i].image_url + "' id='aContent"+i+"'></div>");
+          i ++  
+        }
+      });
+    }
+    else{alert("Name must be at least 3 characters")}
   }
 
   // for displaying data when the item is clicked
@@ -280,9 +301,16 @@ if(page == "content.html")
       console.log(data)
       document.getElementById("detailsBox").style.display = "block";
 
-      document.getElementById("title").innerHTML = data.title
+      document.getElementById("title").innerHTML = data.title + " " + "("+ contentType +")"
       document.getElementById("contentImage").src = data.image_url
       document.getElementById("synopsis").innerHTML = data.synopsis
+      if (data.score != null){document.getElementById("rating").innerHTML = ("Rating: " + data.score + "/10")}
+      else{document.getElementById("rating").innerHTML = "Rating: TBA" }
+
+      for (let i=0; i < (data.genres).length; i++){
+        if(i == (data.genres).length - 1){document.getElementById("contentGenres").innerHTML += " " + data.genres[i].name}
+        else{document.getElementById("contentGenres").innerHTML += " " + data.genres[i].name + ","}   
+      }
     });
   })
 
@@ -336,7 +364,13 @@ window.onclick = function(event) {
         login.style.display = "none"; 
         signup.style.display = "none";
         detailsBox.style.display = "none";
+        document.getElementById('contentGenres').innerHTML = "Genres:"
     } 
+}
+
+function closeDetailsBox(){
+  document.getElementById('detailsBox').style.display = 'none'
+  document.getElementById('contentGenres').innerHTML = "Genres:"
 }
 
 function show(a){

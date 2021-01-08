@@ -7,14 +7,14 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body onload="fetchData()">
         <!-- Navigation bar -->
         <div class="navDiv">
             <div class="aNav"><a href="index.html" class="aNav">Home</a></div>
             <div class="content">
-                <button class="contentBtn">Content</button>
+                <button class="contentBtn"><a href="content.html" class="type" id="anime">Content</a></button>
                 <div class="dropdownContent">
                     <a href="content.html" class="type" id="anime">Anime</a>
                     <a href="content.html" class="type" id="manga">Manga</a>
@@ -131,15 +131,16 @@
             <!-- Modal content -->
             <div class="detailsContent">
                 <div class="detailsHeader">
-                    <a class="close" onclick="document.getElementById('detailsBox').style.display = 'none'">x</a>
-                    <h2 id="title">Modal Header</h2>
+                    <a class="close" onclick="closeDetailsBox()">x</a>
+                    <h2 id="title">Title</h2>
                 </div>
                 <div class="detailsBody">
                     <div><img src="" id="contentImage"></div>
-                    <div><p id="synopsis">Some text in the Modal Body</p></div>                   
+                    <div><p id="synopsis">Synopsis</p></div>                   
                 </div>
                 <div class="detailsFooter">
-                    <h3>Modal Footer</h3>
+                    <h3 id="rating">Rating</h3>
+                    <h3 id="contentGenres">Genres:</h3>
                 </div>
             </div>
         </div>
