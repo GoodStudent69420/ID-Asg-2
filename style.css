@@ -10,12 +10,13 @@ a {
   }
   
 .navDiv{
+  font-family: 'Times New Roman', Times, serif;
   background-color: black;
   position: fixed;
   width: 100%;
   z-index: 10;
-  margin-top: -10px;
-  margin-left: -10px;
+  top: 0;
+  left: 0;
 }
 
 .aNav{
@@ -108,58 +109,62 @@ a {
   margin-left: .7em;
 }
 
-  /* everything for slideshow*/
-  .slideshow{
-    padding-top: 10px;
-  }
-  
-  .slideshow-container {
-    max-width: 1700px;
-    text-align: center;
-    position: relative;
-    margin: auto;
-  }
-  
-  .mySlides {
-    display: none;
-  }
-  
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    color: black;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-  
-  .arrowBtn{
-    display: flex;
-    justify-content: space-between;
-    align-self: center;
-  }
+/* everything for slideshow*/
+.slideshow{
+  padding-top: 10px;
+}
 
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-    margin-right: 30%;
-  }
+.slideshow-container {
+  max-width: 1700px;
+  text-align: center;
+  position: relative;
+  margin: auto;
+}
 
-  .prev{
-    margin-left: 30%;
-  }
+.slides {
+  display: none;
+}
 
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-    color: white;
-  }
-  
-  /* slideshow Caption text */
+.slides:hover{
+  cursor: pointer;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.arrowBtn{
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  margin-right: 30%;
+}
+
+.prev{
+  margin-left: 30%;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+}
+
+/* slideshow Caption text */
 .text {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
@@ -188,11 +193,6 @@ a {
   background-color: #717171;
 }
 
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-  
 /* Featured Anime & Manga */
 
 .wrapper { 
@@ -205,20 +205,16 @@ a {
   max-width: 1700px;
 }
 
-.scrolls { 
+#scrollsA, #scrollsM{ 
   overflow-x: scroll;
   overflow-y: hidden;
   height: auto;
   white-space:nowrap
 } 
 
-.scrolls img{
+#scrollsA img, #scrollsM img{
   width: 200px;
-  height: auto;
-}
-
-.card:hover .desc{
-  display: block;
+  height: 300px;
 }
 
 .card {
@@ -235,6 +231,14 @@ a {
 
 .aTitle, .mTitle{
   overflow: hidden;
+}
+
+.card:hover{
+  cursor: pointer;
+}
+
+.card:hover .desc{
+  display: block;
 }
 
 .card:hover .aTitle{
@@ -298,18 +302,6 @@ footer{
 
 .footerA{
   color: white;
-}
-
-.footerUlSocial{
-  display: flex;
-  flex-direction: row;
-  float: right;
-  margin-right: 200px;
-  margin-top: 50px;
-}
-
-.socialLi{
-  margin:20px;
 }
 
 .blackBoxBottom{
@@ -376,8 +368,6 @@ footer{
 .items img{
   width: 270px;
   height: 400px;
-  max-width: 100%;
-  max-height: 100%;
 }
 
 /* search */
@@ -388,6 +378,15 @@ footer{
   position: fixed;
   z-index: 2;
   background-color: white;
+}
+
+.search button{
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: black;
+  color: white;
 }
 
 .search button:hover{
@@ -461,8 +460,6 @@ footer{
   box-shadow: 1px 1px 10px #999; 
   animation: fadeIn 0.4s;
 }
-
-
 
 .detailsHeader {
   padding: 2px 16px;

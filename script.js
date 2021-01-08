@@ -5,6 +5,7 @@ console.log( page );
 // if user is in index page
 if(page == "index.html")
 {
+  
   //slideshow
   var slideIndex = 1;
   showSlides(slideIndex);
@@ -19,7 +20,7 @@ if(page == "index.html")
 
   function showSlides(n) {
     var i;
-    var slides = document.getElementsByClassName("mySlides");
+    var slides = document.getElementsByClassName("slides");
     var dots = document.getElementsByClassName("dot");
     if (n > slides.length) {slideIndex = 1}    
     if (n < 1) {slideIndex = slides.length}
@@ -33,50 +34,124 @@ if(page == "index.html")
     dots[slideIndex-1].className += " active";
   }
 
-  fetch('https://api.jikan.moe/v3/top/anime/1/upcoming')
+  var con1 = document.getElementById("scrollsA")
+  var con2 = document.getElementById("scrollsM")
+  var con3 = document.getElementById("slideCon")
+  let d = new Date();
+
+  //for getting season
+  function getSeason() {
+    month = d.getMonth() + 1;
+    if (3 <= month && month <= 5) {
+        return 'spring';
+    }
+    else if (6 <= month && month <= 8) {
+        return 'summer';
+    }
+    else if (9 <= month && month <= 11) {
+        return 'fall';
+    }
+    else{
+      return 'winter';
+    }
+  }
+
+  function getYear(){
+    return d.getFullYear();
+  }
+
+  function fetchSlideCon(){
+    fetch('https://api.jikan.moe/v3/top/anime/1/upcoming')
     .then(response => response.json()) 
     .then(function(data){
       console.log(data)
 
       let i = 0
-      while (i < 21){
-        document.getElementById("up" + (i + 1).toString()).src = data.top[i].image_url;
-        document.getElementById("upName" + (i + 1).toString()).innerHTML = data.top[i].title;
-        i ++
+      while (i < 4){
+        if (i == 0){
+          document.getElementById("sImg").src = data.top[i].image_url
+          document.getElementById("sTxt").innerHTML = data.top[i].title
+          $('.slides').attr("id", data.top[i].mal_id)
+          i++
+        }
+        else{
+          console.log(i)
+          con3.innerHTML += "<div class='slides' style='text-align: center;' id='"+ data.top[i].mal_id +"' title='anime'><img src='"+ data.top[i].image_url +"' style='width:30%'><div class='text'>"+ data.top[i].title +"</div></div>"
+          i ++
+        }
       }
-  });
+    });
+  }
 
-  fetch('https://api.jikan.moe/v3/top/anime/1/tv')
+  function fetchAnime(){
+    let season = getSeason()
+    let year = getYear()
+    fetch('https://api.jikan.moe/v3/season/'+ year +'/'+ season +'')
     .then(response => response.json()) 
     .then(function(data){
       console.log(data)
-
-      var i = 0
-      while (i < 21){
-        document.getElementById("anime" + (i + 1).toString()).src = data.top[i].image_url;
-        document.getElementById("aTitle" + (i + 1).toString()).innerHTML = data.top[i].title;
-        document.getElementById("aDesc" + (i + 1).toString()).innerHTML = 'Score: ' + data.top[i].score;
-        i ++
-      }
-  });
-
-  fetch('https://api.jikan.moe/v3/top/manga/1/manga')
-    .then(response => response.json()) 
-    .then(function(data){
-      console.log(data)
-
+    
       let i = 0
-      while (i < 21){
-        document.getElementById("manga" + (i + 1).toString()).src = data.top[i].image_url;
-        document.getElementById("mTitle" + (i + 1).toString()).innerHTML = data.top[i].title;
-        document.getElementById("mDesc" + (i + 1).toString()).innerHTML = 'Score: ' + data.top[i].score;
+      let score = ""
+      while (i < 20){
+        if (data.anime[i].score == null){
+          score = "TBA"
+        }
+        else{
+          score = data.anime[i].score 
+        }
+        con1.innerHTML += ("<div class='card' id='"+ data.anime[i].mal_id +"' title='anime'><img src='" + data.anime[i].image_url+"'><h5 class='aTitle'>"+ data.anime[i].title +"</h5><p class='desc'>"+ score +"</p></div>")
         i ++
       }
-  });
+    });
+  }
+
+  function fetchManga(){
+    fetch('https://api.jikan.moe/v3/top/manga/1/bypopularity')
+    .then(response => response.json()) 
+    .then(function(data){
+      console.log(data)
+  
+      let i = 0
+      while (i < 20){
+        con2.innerHTML += ("<div class='card' id='"+ data.top[i].mal_id +"' title='manga'><img src='" + data.top[i].image_url+"'><h5 class='aTitle'>"+ data.top[i].title +"</h5><p class='desc'>"+ data.top[i].score +"</p></div>")
+        i ++
+      }
+    });
+  }
+
+  // for displaying data when the item is clicked
+  $("body").on("click", ".card", function(){
+    let aId = this.id
+    let contentType = this.title
+    fetch('https://api.jikan.moe/v3/'+contentType+'/'+aId)
+    .then(response => response.json()) 
+    .then(function(data){
+      console.log(data)  
+      document.getElementById("detailsBox").style.display = "block";
+      document.getElementById("title").innerHTML = data.title
+      document.getElementById("contentImage").src = data.image_url
+      document.getElementById("synopsis").innerHTML = data.synopsis
+    });
+  })
+
+  $("body").on("click", ".slides", function(){
+    let aId = this.id
+    let contentType = this.title
+    fetch('https://api.jikan.moe/v3/'+contentType+'/'+aId)
+    .then(response => response.json()) 
+    .then(function(data){
+      console.log(data)  
+      document.getElementById("detailsBox").style.display = "block";
+      document.getElementById("title").innerHTML = data.title
+      document.getElementById("contentImage").src = data.image_url
+      document.getElementById("synopsis").innerHTML = data.synopsis
+    });
+  })
 }
-
 // if user is in content page
-if(page == "content.html"){
+if(page == "content.html")
+{
   var container = document.getElementById('div-container')
   var pageNo = 1
   var topHeight = 9.5
@@ -106,7 +181,6 @@ if(page == "content.html"){
     topHeight = 7.5
   }
 
-  
   //get data when content page is loaded
   var req1 = "top"
   var type1 = ""
@@ -120,6 +194,7 @@ if(page == "content.html"){
     var type1 = "manga"
     var subtype1 = "manga"
   }
+  
   function fetchData(req = req1, type = type1, subtype = subtype1){
     fetch('https://api.jikan.moe/v3/'+req+'/'+type+'/'+ pageNo.toString() +'/'+subtype+'')
     .then(response => response.json()) 
@@ -134,7 +209,6 @@ if(page == "content.html"){
     });
   }
 
-  
   //set colours for each genre bar
   genres[1].style.backgroundColor = "rgb("+red+", "+green+", "+blue+")"
 
@@ -200,7 +274,7 @@ if(page == "content.html"){
   // for displaying data when the item is clicked
   $("body").on("click", ".items", function(event){
     let aId = this.id
-    fetch('https://api.jikan.moe/v3/'+contentType+'/' + aId)
+    fetch('https://api.jikan.moe/v3/'+contentType+'/'+aId)
     .then(response => response.json()) 
     .then(function(data){
       console.log(data)
