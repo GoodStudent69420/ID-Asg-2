@@ -77,7 +77,7 @@ if(page == "index.html")
         }
         else{
           console.log(i)
-          con3.innerHTML += "<div class='slides' style='text-align: center;' id='"+ data.top[i].mal_id +"' title='anime'><img src='"+ data.top[i].image_url +"' style='width:30%'><div class='text'>"+ data.top[i].title +"</div></div>"
+          con3.innerHTML += "<div class='slides' style='text-align: center;' id='"+ data.top[i].mal_id +"' title='anime'><img src='"+ data.top[i].image_url +"' style='width:45%'><div class='text'>"+ data.top[i].title +"</div></div>"
           i ++
         }
       }
@@ -95,7 +95,7 @@ if(page == "index.html")
     
       let i = 0
       let score = ""
-      while (i < 20){
+      while (i < 40){
         if (data.anime[i].score == null){
           score = "TBA"
         }
@@ -116,7 +116,7 @@ if(page == "index.html")
       console.log(data)
   
       let i = 0
-      while (i < 20){
+      while (i < 40){
         con2.innerHTML += ("<div class='card' id='"+ data.top[i].mal_id +"' title='manga'><img src='" + data.top[i].image_url+"'><h5 class='aTitle'>"+ data.top[i].title +"</h5><p class='desc'>"+ data.top[i].score +"</p></div>")
         i ++
       }
